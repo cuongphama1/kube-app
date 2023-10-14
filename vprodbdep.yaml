@@ -6,7 +6,7 @@ metadata:
     app: vprodb
 spec:
   selector:
-    mathLabels:
+    matchLabels:
       app: vprodb
   replicas: 1
   template:
@@ -25,7 +25,7 @@ spec:
               containerPort: 3306
           env:
             - name: MYSQL_ROOT_PASSWORD
-              valueForm:
+              valueFrom:
                 secretKeyRef:
                   name: app-secret
                   key: db-pass
